@@ -1,0 +1,25 @@
+{
+  "name": "angular-typed-forms-helpers",
+  "version": "1.0.0",
+  "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zjkipping/angular-typed-forms-helpers.git"
+  },
+  "author": "Zachary Kipping <zjkipping@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zjkipping/angular-typed-forms-helpers/issues"
+  },
+  "homepage": "https://github.com/zjkipping/angular-typed-forms-helpers#readme",
+  "dependencies": {
+    "@angular/forms": "^14.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.3"
+  }
+}
