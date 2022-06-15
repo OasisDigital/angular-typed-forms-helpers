@@ -59,7 +59,7 @@ It is important to note this interface only covers basic cases of form structure
 assumption that all objects are FormGroups and arrays are FormArrays. If you would like a
 FormControl for one of your object/array types you will have to set it up manualy.
 
-## AngularFormGroup
+## `AngularFormGroup` Interface
 
 This is a subset of the `AngularForm` interface translating only an object over to a `FormGroup`
 setup. If you give an array type to this interface the return will be `never`. This is due to a
@@ -74,7 +74,7 @@ const animalForm: AnimalForm = new FormGroup({
 });
 ```
 
-## AngularFormArray
+## `AngularFormArray` Interface
 
 This is a subset of the `AngularForm` interface translating only an array over to a `FormArray`
 setup.
