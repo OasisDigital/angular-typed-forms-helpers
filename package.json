@@ -1,6 +1,6 @@
 {
   "name": "angular-typed-forms-helpers",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,6 +20,16 @@
     "url": "https://github.com/zjkipping/angular-typed-forms-helpers/issues"
   },
   "homepage": "https://github.com/zjkipping/angular-typed-forms-helpers#readme",
+  "keywords": [
+    "angular",
+    "typed",
+    "reactive",
+    "forms",
+    "typescript",
+    "types",
+    "helper",
+    "interfaces"
+  ],
   "dependencies": {
     "@angular/forms": "^14.0.1"
   },
