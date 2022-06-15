@@ -1,10 +1,14 @@
 {
   "name": "angular-typed-forms-helpers",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
