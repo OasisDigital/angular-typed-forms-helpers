@@ -8,11 +8,11 @@ Types and back into raw typescript interfaces/types for the value.
 
 ### npm
 
-`npm install --save-dev angular-typed-forms-helpers`
+`npm install --save-dev @oasisdigital/angular-typed-forms-helpers`
 
 ### yarn
 
-`yarn add --dev angular-typed-forms-helpers`
+`yarn add --dev @oasisdigital/angular-typed-forms-helpers`
 
 Then you can simply import the helper interfaces from `angular-typed-forms-helpers`.
 
