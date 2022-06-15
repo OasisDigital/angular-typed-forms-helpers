@@ -10,6 +10,20 @@ export type AngularForm<T> = T extends (infer ElementType)[]
     }>
   : FormControl<T>;
 
+// Helpful sub-type for the above `AngularForm` regarding object -> FormGroup.
+// This is case you need to mix & match types in a form.
+export type AngularFormGroup<T extends object> = T extends any[]
+  ? never
+  : FormGroup<{
+      [Key in keyof T]: AngularForm<T[Key]>;
+    }>;
+
+// Helpful sub-type for the above `AngularForm` regarding array -> FormArray.
+// This is case you need to mix & match types in a form.
+export type AngularFormArray<T extends any[]> = T extends (infer ElementType)[]
+  ? FormArray<AngularForm<ElementType>>
+  : never;
+
 // Converts any type from Angular's typed reactive form system to a
 // general type (number, string, boolean, object, array, etc...)
 // This will correctly use Partial for any objects
