@@ -1,5 +1,5 @@
 {
-  "name": "angular-typed-forms-helpers",
+  "name": "@oasisdigital/angular-typed-forms-helpers",
   "version": "1.1.2",
   "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
   "main": "dist/index.js",
@@ -20,6 +20,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zjkipping/angular-typed-forms-helpers/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://github.com/zjkipping/angular-typed-forms-helpers#readme",
   "keywords": [
