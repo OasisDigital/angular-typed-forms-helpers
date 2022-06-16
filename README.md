@@ -20,8 +20,8 @@ Then you can simply import the helper interfaces from `angular-typed-forms-helpe
 
 ## `AngularForm` Interface
 
-This interface allows for translating an object or general TS type/interface into one of the 3 main
-Angular Reactive Forms types (FormControl, FormGroup, FormArray).
+This interface allows for _deeply_ translating an object or general TS type/interface into one of
+the 3 main Angular Reactive Forms types (FormControl, FormGroup, FormArray).
 
 ```ts
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
@@ -58,44 +58,76 @@ const zoneForm: ZoneForm = new FormGroup({
 ```
 
 It is important to note this interface only covers basic cases of form structures, it makes the
-assumption that all objects are FormGroups and arrays are FormArrays. If you would like a
-FormControl for one of your object/array types you will have to set it up manualy.
+assumption that all objects are FormGroups and arrays are FormArrays. If you would like to convert
+so deeply consider using the `AngularFormGroup` or `AngularFormArray` in the below sections.
+
+## `AngularFormGroupShallow` Interface
+
+This interface will do a _shallow_ conversion of an object over to the Angular Typed Forms system.
+Where every property of the object becomes a FormControl.
+
+```ts
+type ZoneForm = AngularFormGroupShallow<Zone>;
+const zoneForm: ZoneForm = new FormGroup({
+  name: new FormControl(''),
+  maxCapacity: new FormControl(10),
+  animals: new FormControl<Animal[]>([]),
+});
+```
 
 ## `AngularFormGroup` Interface
 
-This is a subset of the `AngularForm` interface translating only an object over to a `FormGroup`
-setup. If you give an array type to this interface the return will be `never`. This is due to a
-limitation of diffing arrays and objects in the generic extension type.
+This is a subset of the `AngularForm` interface that deeply converts an object over to the Angular
+Typed Forms system. If you give an array type to this interface the return will be `never`. This is
+due to a limitation of diffing arrays and objects in the generic extension type.
 
 ```ts
-type AnimalForm = AngularFormGroup<Animal>;
-const animalForm: AnimalForm = new FormGroup({
+type ZoneForm = AngularFormGroup<Zone>;
+const zoneForm: ZoneForm = new FormGroup({
   name: new FormControl(''),
-  species: new FormControl(''),
-  lifeStage: new FormControl(''),
-  birthDate: new FormControl(new Date('01 Jan 1994')),
+  maxCapacity: new FormControl(10),
+  animals: new FormArray<AnimalForm[]>([]),
 });
+```
+
+## `AngularFormArrayShallow` Interface
+
+This interface will do a _shallow_ conversion of an array over to the Angular Typed Forms system.
+Where the Array subtype becomes a matching FormControl subtype for the FormArray.
+
+```ts
+type ZonesForm = AngularFormArrayShallow<Zone[]>;
+const zonesForm: ZonesForm = new FormArray([
+  {
+    name: new FormControl(''),
+    maxCapacity: new FormControl(10),
+    animals: new FormControl<Animal[]>([]),
+  },
+  {
+    name: new FormControl(''),
+    maxCapacity: new FormControl(10),
+    animals: new FormControl<Animal[]>([]),
+  },
+]);
 ```
 
 ## `AngularFormArray` Interface
 
-This is a subset of the `AngularForm` interface translating only an array over to a `FormArray`
-setup.
+This is a subset of the `AngularForm` interface that deeply converts an array over to the Angular
+Typed Forms system.
 
 ```ts
-type AnimalsForm = AngularFormArray<Animal[]>;
-const animalForm: AnimalForm = new FormArray([
+type ZonesForm = AngularFormArray<Zone[]>;
+const zonesForm: ZonesForm = new FormArray([
   {
     name: new FormControl(''),
-    species: new FormControl(''),
-    lifeStage: new FormControl(''),
-    birthDate: new FormControl(new Date('01 Jan 1994')),
+    maxCapacity: new FormControl(10),
+    animals: new FormArray<AnimalForm>([]),
   },
   {
     name: new FormControl(''),
-    species: new FormControl(''),
-    lifeStage: new FormControl(''),
-    birthDate: new FormControl(new Date('01 Jan 1994')),
+    maxCapacity: new FormControl(10),
+    animals: new FormArray<AnimalForm>([]),
   },
 ]);
 ```

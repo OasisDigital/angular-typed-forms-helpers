@@ -12,16 +12,30 @@ export type AngularForm<T> = T extends (infer ElementType)[]
     }>
   : FormControl<T>;
 
-// Helpful sub-type for the above `AngularForm` regarding object -> FormGroup.
-// This is case you need to mix & match types in a form.
+// Helpful subtype that shallowly converts an object to a FormGroup.
+// Each property on the object becomes a FormControl.
+export type AngularFormGroupShallow<T extends object> = T extends any[] | Date
+  ? never
+  : FormGroup<{
+      [Key in keyof T]: FormControl<T[Key]>;
+    }>;
+
+// Helpful subtype that deeply converts an object over to Angular's Typed Forms system.
+// Based on the above larger AngularForm type.
 export type AngularFormGroup<T extends object> = T extends any[] | Date
   ? never
   : FormGroup<{
       [Key in keyof T]: AngularForm<T[Key]>;
     }>;
 
-// Helpful sub-type for the above `AngularForm` regarding array -> FormArray.
-// This is case you need to mix & match types in a form.
+// Helpful subtype that shallowly converts an array to a FormArray.
+// The subtype of the array becomes a FormControl subtype for the FormArray.
+export type AngularFormArrayShallow<T extends any[]> = T extends (infer ElementType)[]
+  ? FormArray<FormControl<ElementType>>
+  : never;
+
+// Helpful subtype that deeply converts an array over to Angular's Typed Forms system.
+// Based on the above larger AngularForm type.
 export type AngularFormArray<T extends any[]> = T extends (infer ElementType)[]
   ? FormArray<AngularForm<ElementType>>
   : never;

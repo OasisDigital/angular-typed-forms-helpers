@@ -1,4 +1,12 @@
-import { AngularForm, AngularFormArray, AngularFormGroup } from './types';
+import {
+  AngularForm,
+  AngularFormArray,
+  AngularFormArrayShallow,
+  AngularFormGroup,
+  AngularFormGroupShallow,
+  AngularFormRawValue,
+  AngularFormValue,
+} from './types';
 
 export interface Animal {
   name: string;
@@ -23,5 +31,10 @@ type AnimalForm = AngularForm<Animal>;
 type ZoneForm = AngularForm<Zone>;
 type EnvironmentForm = AngularForm<Environment>;
 
-type AnimalsForm = AngularFormArray<Animal[]>;
-type AnimalForm2 = AngularFormGroup<Animal>;
+type ZonesFormArrayShallow = AngularFormArrayShallow<Zone[]>;
+type ZonesFormArray = AngularFormArray<Zone[]>;
+type ZoneFormGroupShallow = AngularFormGroupShallow<Zone>;
+type ZoneFormGroupDeep = AngularFormGroup<Zone>;
+
+type EnvironmentValue = AngularFormValue<EnvironmentForm>;
+type EnvironmentRawValue = AngularFormRawValue<EnvironmentForm>;
