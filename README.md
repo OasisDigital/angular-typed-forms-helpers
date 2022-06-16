@@ -31,6 +31,7 @@ export interface Animal {
   name: string;
   species: string;
   lifeStage: string;
+  birthDate: Date;
 }
 
 export interface Zone {
@@ -46,6 +47,7 @@ const animalForm: AnimalForm = new FormGroup({
   name: new FormControl(''),
   species: new FormControl(''),
   lifeStage: new FormControl(''),
+  birthDate: new FormControl(new Date('01 Jan 1994')),
 });
 
 const zoneForm: ZoneForm = new FormGroup({
@@ -71,6 +73,7 @@ const animalForm: AnimalForm = new FormGroup({
   name: new FormControl(''),
   species: new FormControl(''),
   lifeStage: new FormControl(''),
+  birthDate: new FormControl(new Date('01 Jan 1994')),
 });
 ```
 
@@ -86,11 +89,13 @@ const animalForm: AnimalForm = new FormArray([
     name: new FormControl(''),
     species: new FormControl(''),
     lifeStage: new FormControl(''),
+    birthDate: new FormControl(new Date('01 Jan 1994')),
   },
   {
     name: new FormControl(''),
     species: new FormControl(''),
     lifeStage: new FormControl(''),
+    birthDate: new FormControl(new Date('01 Jan 1994')),
   },
 ]);
 ```
@@ -109,6 +114,7 @@ const animalForm: AnimalForm = new FormGroup({
   name: new FormControl(''),
   species: new FormControl(''),
   lifeStage: new FormControl({ value: '', disabled: true }),
+  birthDate: new FormControl(new Date('01 Jan 1994')),
 });
 
 const animalValue: AngularFormValue<AnimalForm> = animalForm.value;
@@ -117,6 +123,7 @@ const animalValue: AngularFormValue<AnimalForm> = animalForm.value;
   name?: string;
   species?: string;
   lifeStage?: string;
+  birthDate?: Date;
 }
 */
 ```
@@ -135,6 +142,7 @@ const animalForm: AnimalForm = new FormGroup({
   name: new FormControl(''),
   species: new FormControl(''),
   lifeStage: new FormControl({ value: '', disabled: true }),
+  birthDate: new FormControl(new Date('01 Jan 1994')),
 });
 
 const animalValue: AngularFormRawValue<AnimalForm> = animalForm.getRawValue();
@@ -143,6 +151,7 @@ const animalValue: AngularFormRawValue<AnimalForm> = animalForm.getRawValue();
   name: string;
   species: string;
   lifeStage: string;
+  birthDate: Date;
 }
 */
 ```
