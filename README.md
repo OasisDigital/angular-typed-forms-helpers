@@ -80,7 +80,7 @@ This is a subset of the `AngularForm` interface translating only an array over t
 setup.
 
 ```ts
-type AnimalsForm = AngularFormArray<Animal>;
+type AnimalsForm = AngularFormArray<Animal[]>;
 const animalForm: AnimalForm = new FormArray([
   {
     name: new FormControl(''),
