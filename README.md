@@ -25,7 +25,7 @@ the 3 main Angular Reactive Forms types (FormControl, FormGroup, FormArray).
 
 ```ts
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { AngularForm } from 'angular-typed-forms-helpers';
+import { AngularForm } from '@oasisdigital/angular-typed-forms-helpers';
 
 export interface Animal {
   name: string;
