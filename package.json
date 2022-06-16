@@ -10,7 +10,7 @@
   "scripts": {
     "tsc": "tsc",
     "clear-dist": "node _tools/clean.js ./dist",
-    "publish": "npm run clear-dist && npm run tsc && npm publish"
+    "build": "npm run clear-dist && npm run tsc"
   },
   "repository": {
     "type": "git",
