@@ -1,0 +1,40 @@
+{
+  "name": "@oasisdigital/angular-typed-forms-helpers",
+  "version": "3.0.0",
+  "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OasisDigital/angular-typed-forms-helpers.git"
+  },
+  "author": "Zachary Kipping <zjkipping@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OasisDigital/angular-typed-forms-helpers/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/OasisDigital/angular-typed-forms-helpers#readme",
+  "keywords": [
+    "angular",
+    "typed",
+    "reactive",
+    "forms",
+    "typescript",
+    "types",
+    "helper",
+    "interfaces"
+  ],
+  "peerDependencies": {
+    "@angular/forms": "^16.0.0",
+    "typescript": "^5.0.0"
+  }
+}

@@ -6,7 +6,7 @@ import {
   AngularFormGroupShallow,
   AngularFormRawValue,
   AngularFormValue,
-} from './types';
+} from '.';
 
 export interface Animal {
   name: string;
