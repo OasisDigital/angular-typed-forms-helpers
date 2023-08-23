@@ -20,7 +20,7 @@ Then you can simply import the helper interfaces from `angular-typed-forms-helpe
 
 - <1.4.0 - Angular 14.x.x
 - 1.4.0 - Angular 15.x.x
-- 1.5.0 - Anuglar 16.x.x
+- 1.5.0 - Angular 16.x.x
 
 ## [Stackblitz Demo](https://stackblitz.com/edit/angular-typed-forms-helpers-demo?file=src%2Fapp%2Fapp.component.ts)
 
