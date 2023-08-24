@@ -18,13 +18,22 @@ Then you can simply import the helper interfaces from `angular-typed-forms-helpe
 
 ### `@angular/forms` Version Compatability
 
+- 3.1.0 - Angular 16.x.x - Supports Nullable & NonNullable versions of AbstractControls
 - 3.0.0 - Angular 16.x.x (moved to peerDependency setup)
+  - Only supports NonNullable versions of AbstractControls
 - 2.0.0 (unpublished)
 - 1.5.0 - Angular 16.2.1
 - 1.4.0 - Angular 15.0.0
 - <1.4.0 - Angular 14.0.1
 
 ## [Stackblitz Demo](https://stackblitz.com/edit/angular-typed-forms-helpers-demo?file=src%2Fapp%2Fapp.component.ts)
+
+> For the below sections describing the different interfaces/types, if you want a `NonNullable`
+> version of any of them simply prefix the type/interface with `NonNullable`.
+>
+> For example with `AngularForm` you would do `NonNullableAngularForm`. If you are using a
+> `NonNullable` version of a type/interface please make sure to use the correct corresponding
+> `value` or `rawValue` type.
 
 ## `AngularForm` Interface
 
@@ -69,6 +78,8 @@ It is important to note this interface only covers basic cases of form structure
 assumption that all objects are FormGroups and arrays are FormArrays. If you would like to convert
 so deeply consider using the `AngularFormGroup` or `AngularFormArray` in the below sections.
 
+> The `NonNullable` version of this type is `NonNullableAngularForm`.
+
 ## `AngularFormGroupShallow` Interface
 
 This interface will do a _shallow_ conversion of an object over to the Angular Typed Forms system.
@@ -82,6 +93,8 @@ const zoneForm: ZoneForm = new FormGroup({
   animals: new FormControl<Animal[]>([]),
 });
 ```
+
+> The `NonNullable` version of this type is `NonNullableAngularFormGroupShallow`.
 
 ## `AngularFormGroup` Interface
 
@@ -97,6 +110,8 @@ const zoneForm: ZoneForm = new FormGroup({
   animals: new FormArray<AnimalForm[]>([]),
 });
 ```
+
+> The `NonNullable` version of this type is `NonNullableAngularFormGroup`.
 
 ## `AngularFormArrayShallow` Interface
 
@@ -119,6 +134,8 @@ const zonesForm: ZonesForm = new FormArray([
 ]);
 ```
 
+> The `NonNullable` version of this type is `NonNullableAngularFormGroupShallow`.
+
 ## `AngularFormArray` Interface
 
 This is a subset of the `AngularForm` interface that deeply converts an array over to the Angular
@@ -139,6 +156,8 @@ const zonesForm: ZonesForm = new FormArray([
   },
 ]);
 ```
+
+> The `NonNullable` version of this type is `NonNullableAngularFormArray`.
 
 ## `AngularFormValue` Interface
 
@@ -170,6 +189,8 @@ const animalValue: AngularFormValue<AnimalForm> = animalForm.value;
 
 This interface also works for custom implementations of the `AbstractControl` class.
 
+> The `NonNullable` version of this type is `NonNullableAngularFormValue`.
+
 ## `AngularFormRawValue` Interface
 
 This interface is used to translate the `.getRawValue()` method return type from a Angular Reactive
@@ -197,3 +218,5 @@ const animalValue: AngularFormRawValue<AnimalForm> = animalForm.getRawValue();
 ```
 
 This interface also works for custom implementations of the `AbstractControl` class.
+
+> The `NonNullable` version of this type is `NonNullableAngularFormRawValue`.

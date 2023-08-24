@@ -1,6 +1,6 @@
 {
   "name": "@oasisdigital/angular-typed-forms-helpers",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Some helper types for when you are dealing with Angular's typed reactive forms system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

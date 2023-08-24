@@ -5,19 +5,19 @@ import { FormArray, FormControl, FormGroup, AbstractControl } from '@angular/for
 export type AngularForm<T> = T extends (infer ElementType)[]
   ? FormArray<AngularForm<ElementType>>
   : T extends Date
-  ? FormControl<T>
+  ? FormControl<T | null>
   : T extends object
   ? FormGroup<{
       [Key in keyof T]: AngularForm<T[Key]>;
     }>
-  : FormControl<T>;
+  : FormControl<T | null>;
 
 // Helpful subtype that shallowly converts an object to a FormGroup.
 // Each property on the object becomes a FormControl.
 export type AngularFormGroupShallow<T extends object> = T extends any[] | Date
   ? never
   : FormGroup<{
-      [Key in keyof T]: FormControl<T[Key]>;
+      [Key in keyof T]: FormControl<T[Key] | null>;
     }>;
 
 // Helpful subtype that deeply converts an object over to Angular's Typed Forms system.
@@ -31,7 +31,7 @@ export type AngularFormGroup<T extends object> = T extends any[] | Date
 // Helpful subtype that shallowly converts an array to a FormArray.
 // The subtype of the array becomes a FormControl subtype for the FormArray.
 export type AngularFormArrayShallow<T extends any[]> = T extends (infer ElementType)[]
-  ? FormArray<FormControl<ElementType>>
+  ? FormArray<FormControl<ElementType | null>>
   : never;
 
 // Helpful subtype that deeply converts an array over to Angular's Typed Forms system.
@@ -50,9 +50,9 @@ export type AngularFormValue<T> = T extends FormArray<infer FA>
       [Key in keyof FG]: AngularFormValue<FG[Key]>;
     }>
   : T extends FormControl<infer FC>
-  ? FC
+  ? FC | null
   : T extends AbstractControl<infer AC>
-  ? AC
+  ? AC | null
   : never;
 
 // Converts any type from Angular's typed reactive form system to a
@@ -63,6 +63,61 @@ export type AngularFormRawValue<T> = T extends FormArray<infer FA>
   : T extends FormGroup<infer FG>
   ? {
       [Key in keyof FG]: AngularFormRawValue<FG[Key]>;
+    }
+  : T extends FormControl<infer FC>
+  ? FC | null
+  : T extends AbstractControl<infer AC>
+  ? AC | null
+  : never;
+
+// Non Nullable versions of the above types...
+export type NonNullableAngularForm<T> = T extends (infer ElementType)[]
+  ? FormArray<NonNullableAngularForm<ElementType>>
+  : T extends Date
+  ? FormControl<T>
+  : T extends object
+  ? FormGroup<{
+      [Key in keyof T]: NonNullableAngularForm<T[Key]>;
+    }>
+  : FormControl<T>;
+
+export type NonNullableAngularFormGroupShallow<T extends object> = T extends any[] | Date
+  ? never
+  : FormGroup<{
+      [Key in keyof T]: FormControl<T[Key]>;
+    }>;
+
+export type NonNullableAngularFormGroup<T extends object> = T extends any[] | Date
+  ? never
+  : FormGroup<{
+      [Key in keyof T]: NonNullableAngularForm<T[Key]>;
+    }>;
+
+export type NonNullableAngularFormArrayShallow<T extends any[]> = T extends (infer ElementType)[]
+  ? FormArray<FormControl<ElementType>>
+  : never;
+
+export type NonNullableAngularFormArray<T extends any[]> = T extends (infer ElementType)[]
+  ? FormArray<NonNullableAngularForm<ElementType>>
+  : never;
+
+export type NonNullableAngularFormValue<T> = T extends FormArray<infer FA>
+  ? NonNullableAngularFormValue<FA>[]
+  : T extends FormGroup<infer FG>
+  ? Partial<{
+      [Key in keyof FG]: NonNullableAngularFormValue<FG[Key]>;
+    }>
+  : T extends FormControl<infer FC>
+  ? FC
+  : T extends AbstractControl<infer AC>
+  ? AC
+  : never;
+
+export type NonNullableAngularFormRawValue<T> = T extends FormArray<infer FA>
+  ? NonNullableAngularFormRawValue<FA>[]
+  : T extends FormGroup<infer FG>
+  ? {
+      [Key in keyof FG]: NonNullableAngularFormRawValue<FG[Key]>;
     }
   : T extends FormControl<infer FC>
   ? FC
