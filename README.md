@@ -22,18 +22,13 @@ Then you can simply import the helper interfaces from `angular-typed-forms-helpe
 - 2.2.x - Angular 15.x.x
 - 2.1.x - Angular 14.x.x
 
-> Version `3.0.x` supports Angular `16.x.x`, but only works with NonNullable controls... Versions
-> `>=3.1.0` support both NonNullable & Nullable controls. This is the version that was backported
-> via `2.2.x` & `2.1.x` for Angular versions `15.x.x` and `14.x.x` respectively.
-
 ## [Stackblitz Demo](https://stackblitz.com/edit/angular-typed-forms-helpers-demo?file=src%2Fapp%2Fapp.component.ts)
 
 > For the below sections describing the different interfaces/types, if you want a `NonNullable`
-> version of any of them simply prefix the type/interface with `NonNullable`.
+> version of any of them simply prefix the type/interface with `NonNullable`. This does not include
+> the value & rawValue types as they work regardless of Nullability.
 >
-> For example with `AngularForm` you would do `NonNullableAngularForm`. If you are using a
-> `NonNullable` version of a type/interface please make sure to use the correct corresponding
-> `value` or `rawValue` type.
+> For example, with `AngularForm` you would do `NonNullableAngularForm`.
 
 ## `AngularForm` Interface
 
@@ -76,7 +71,8 @@ const zoneForm: ZoneForm = new FormGroup({
 
 It is important to note this interface only covers basic cases of form structures, it makes the
 assumption that all objects are FormGroups and arrays are FormArrays. If you would like to convert
-so deeply consider using the `AngularFormGroup` or `AngularFormArray` in the below sections.
+on a per property basis consider using the `AngularFormGroup` or `AngularFormArray` from the below
+sections.
 
 > The `NonNullable` version of this type is `NonNullableAngularForm`.
 
@@ -134,7 +130,7 @@ const zonesForm: ZonesForm = new FormArray([
 ]);
 ```
 
-> The `NonNullable` version of this type is `NonNullableAngularFormGroupShallow`.
+> The `NonNullable` version of this type is `NonNullableAngularFormArrayShallow`.
 
 ## `AngularFormArray` Interface
 
@@ -179,17 +175,15 @@ const animalForm: AnimalForm = new FormGroup({
 const animalValue: AngularFormValue<AnimalForm> = animalForm.value;
 /*
 {
-  name?: string;
-  species?: string;
-  lifeStage?: string;
-  birthDate?: Date;
+  name?: string | null;
+  species?: string | null;
+  lifeStage?: string | null;
+  birthDate?: Date | null;
 }
 */
 ```
 
 This interface also works for custom implementations of the `AbstractControl` class.
-
-> The `NonNullable` version of this type is `NonNullableAngularFormValue`.
 
 ## `AngularFormRawValue` Interface
 
@@ -209,14 +203,12 @@ const animalForm: AnimalForm = new FormGroup({
 const animalValue: AngularFormRawValue<AnimalForm> = animalForm.getRawValue();
 /*
 {
-  name: string;
-  species: string;
-  lifeStage: string;
-  birthDate: Date;
+  name: string | null;
+  species: string | null;
+  lifeStage: string | null;
+  birthDate: Date | null;
 }
 */
 ```
 
 This interface also works for custom implementations of the `AbstractControl` class.
-
-> The `NonNullable` version of this type is `NonNullableAngularFormRawValue`.

@@ -12,8 +12,6 @@ import {
   NonNullableAngularFormArrayShallow,
   NonNullableAngularFormGroup,
   NonNullableAngularFormGroupShallow,
-  NonNullableAngularFormRawValue,
-  NonNullableAngularFormValue,
 } from './index';
 
 export interface Animal {
@@ -49,8 +47,8 @@ type ZoneFormGroupDeep = AngularFormGroup<Zone>;
 
 type EnvironmentValue = AngularFormValue<EnvironmentForm>;
 type EnvironmentRawValue = AngularFormRawValue<EnvironmentForm>;
-type NonNullableEnvironmentValue = NonNullableAngularFormValue<NonNullableEnvironmentForm>;
-type NonNullableEnvironmentRawValue = NonNullableAngularFormRawValue<NonNullableEnvironmentForm>;
+type NonNullableEnvironmentValue = AngularFormValue<NonNullableEnvironmentForm>;
+type NonNullableEnvironmentRawValue = AngularFormRawValue<NonNullableEnvironmentForm>;
 
 const animalForm: AnimalForm = new FormGroup({
   name: new FormControl(''),
