@@ -16,15 +16,15 @@ Types and back into raw typescript interfaces/types for the value.
 
 Then you can simply import the helper interfaces from `angular-typed-forms-helpers`.
 
-### `@angular/forms` Version Compatability
+### Version Compatability with `@angular/forms`
 
-- 3.1.0 - Angular 16.x.x - Supports Nullable & NonNullable versions of AbstractControls
-- 3.0.0 - Angular 16.x.x (moved to peerDependency setup)
-  - Only supports NonNullable versions of AbstractControls
-- 2.0.0 (unpublished)
-- 1.5.0 - Angular 16.2.1
-- 1.4.0 - Angular 15.0.0
-- <1.4.0 - Angular 14.0.1
+- 3.1.x - Angular 16.x.x
+- 2.2.x - Angular 15.x.x
+- 2.1.x - Angular 14.x.x
+
+> Version `3.0.x` supports Angular `16.x.x`, but only works with NonNullable controls... Versions
+> `>=3.1.0` support both NonNullable & Nullable controls. This is the version that was backported
+> via `2.2.x` & `2.1.x` for Angular versions `15.x.x` and `14.x.x` respectively.
 
 ## [Stackblitz Demo](https://stackblitz.com/edit/angular-typed-forms-helpers-demo?file=src%2Fapp%2Fapp.component.ts)
 
