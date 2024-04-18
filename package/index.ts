@@ -10,6 +10,8 @@ export type AngularForm<T> = T extends (infer ElementType)[]
   ? FormGroup<{
       [Key in keyof T]: AngularForm<T[Key]>;
     }>
+  : T extends boolean
+  ? FormControl<boolean | null>
   : FormControl<T | null>;
 
 export type NonNullableAngularForm<T> = T extends (infer ElementType)[]
@@ -20,6 +22,8 @@ export type NonNullableAngularForm<T> = T extends (infer ElementType)[]
   ? FormGroup<{
       [Key in keyof T]: NonNullableAngularForm<T[Key]>;
     }>
+  : T extends boolean
+  ? FormControl<boolean>
   : FormControl<T>;
 
 // Helpful subtype that shallowly converts an object to a FormGroup.
