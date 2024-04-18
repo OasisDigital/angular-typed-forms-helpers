@@ -19,6 +19,7 @@ export interface Animal {
   species: string;
   lifeStage: string;
   birthDate: Date;
+  alive: boolean;
 }
 
 export interface Zone {
@@ -55,6 +56,7 @@ const animalForm: AnimalForm = new FormGroup({
   species: new FormControl(''),
   lifeStage: new FormControl(''),
   birthDate: new FormControl(new Date('01 Jan 1994')),
+  alive: new FormControl(true),
 });
 
 const nonNullableAnimalForm: NonNullableAnimalForm = new FormGroup({
@@ -62,6 +64,7 @@ const nonNullableAnimalForm: NonNullableAnimalForm = new FormGroup({
   species: new FormControl('', { nonNullable: true }),
   lifeStage: new FormControl('', { nonNullable: true }),
   birthDate: new FormControl(new Date('01 Jan 1994'), { nonNullable: true }),
+  alive: new FormControl(true, { nonNullable: true }),
 });
 
 const zoneForm: ZoneForm = new FormGroup({
