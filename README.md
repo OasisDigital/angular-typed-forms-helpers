@@ -44,6 +44,7 @@ export interface Animal {
   species: string;
   lifeStage: string;
   birthDate: Date;
+  alive: boolean;
 }
 
 export interface Zone {
@@ -60,6 +61,7 @@ const animalForm: AnimalForm = new FormGroup({
   species: new FormControl(''),
   lifeStage: new FormControl(''),
   birthDate: new FormControl(new Date('01 Jan 1994')),
+  alive: new FormControl(true),
 });
 
 const zoneForm: ZoneForm = new FormGroup({
@@ -170,6 +172,7 @@ const animalForm: AnimalForm = new FormGroup({
   species: new FormControl(''),
   lifeStage: new FormControl({ value: '', disabled: true }),
   birthDate: new FormControl(new Date('01 Jan 1994')),
+  alive: new FormControl(true),
 });
 
 const animalValue: AngularFormValue<AnimalForm> = animalForm.value;
@@ -198,6 +201,7 @@ const animalForm: AnimalForm = new FormGroup({
   species: new FormControl(''),
   lifeStage: new FormControl({ value: '', disabled: true }),
   birthDate: new FormControl(new Date('01 Jan 1994')),
+  alive: new FormControl(true),
 });
 
 const animalValue: AngularFormRawValue<AnimalForm> = animalForm.getRawValue();
