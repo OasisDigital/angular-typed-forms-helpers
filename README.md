@@ -18,6 +18,7 @@ Then you can simply import the helper interfaces from `angular-typed-forms-helpe
 
 ### Version Compatability with `@angular/forms`
 
+- 3.2.x - Angular 17.x.x
 - 3.1.x - Angular 16.x.x
 - 2.2.x - Angular 15.x.x
 - 2.1.x - Angular 14.x.x
