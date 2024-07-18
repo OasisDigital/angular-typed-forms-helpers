@@ -6,9 +6,9 @@
     "publish": "cd ./package && npm publish"
   },
   "dependencies": {
-    "@angular/forms": "^17.0.0"
+    "@angular/forms": "^18.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.2.0"
+    "typescript": "^5.4.0"
   }
 }
