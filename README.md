@@ -16,8 +16,9 @@ Types and back into raw typescript interfaces/types for the value.
 
 Then you can simply import the helper interfaces from `angular-typed-forms-helpers`.
 
-### Version Compatability with `@angular/forms`
+### Version Compatibility with `@angular/forms`
 
+- 3.4.x - Angular 19.x.x
 - 3.3.x - Angular 18.x.x
 - 3.2.x - Angular 17.x.x
 - 3.1.x - Angular 16.x.x
